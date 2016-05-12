@@ -1,0 +1,543 @@
+
+                        **********************************
+                        **********************************
+                        ***                            ***
+                        ***      program ARSTAN40c     ***
+                        ***                            ***
+                        ***       creation date:       ***
+                        ***           3/6/06           ***
+                        ***                            ***
+                        ***       programmed by:       ***
+                        ***     Dr. Edward R. Cook     ***
+                        ***       Paul J. Krusic       ***
+                        ***    tree-ring laboratory    ***
+                        ***  lamont-doherty earth obs  ***
+                        ***    palisades, n.y. 10964   ***
+                        *** drdendro@ldeo.columbia.edu ***
+                        ***    pjk@ldeo.columbia.edu   ***
+                        ***                            ***
+                        **********************************
+                        **********************************
+
+ |==============================================================================|
+
+ overall run title: test                                                                            
+
+ file names file processed:       arstan.files                            
+ data file processed:             VL.raw                                  
+ log file processed:              VL.raw_log                              
+
+                       opt          plt
+ tree-ring data type    1                !tucson ring-width format                         
+ missing data in gap   -9            0   !missing values estimated (no plots)              
+ data transformation    0            0   !no data transformation (no plots)                
+ first detrending       6      0     0   !1st-horizontal line through mean                 
+ second detrending      0      0     0   !2nd-no detrending performed                      
+ robust detrending      1                !non-robust detrending methods used               
+ interactive detrend    0                !no interactive detrending                        
+ index calculation      1                !tree-ring indices or ratios (rt/gt)              
+ ar modeling method     1            0   !non-robust autoregressive modeling               
+ pooled ar order        0            0   !minimum aic pooled ar model order fit 
+ series ar order        0                !pooled ar order fit to all series                
+ mean chronology        2   0    0   0   !robust (biweight) mean chronology                
+ stabilize variance     0                !no variance stabilization performed              
+ common period years        0    0       !no common period analysis performed              
+ site-tree-core mask       SSSTTC        !site-tree-core separation mask                   
+ running rbar              50   25   0   !running rbar window/overlap (no plots)           
+ printout option        2                !summary & series statistics printed              
+ core series save       0                !no individual core series saved                  
+ summary plot displays  0                !no spaghetti and mean chronology plots           
+
+ stand dynamics stuf    0            0   !no stand dynamics analyses done                  
+ running mean window    0                !running mean window width                        
+ percent growth change  0                !percent growth change threshold                  
+ std error threshold    0                !standard error limit threshold                   
+
+ |======================== raw data statistical analyses =======================|
+
+ |------------------- tree-ring series read in for processing ------------------|
+
+  data header lines:
+
+ |------------ series gaps found based on any negative number found ------------|
+
+        series      ident      results of scans for gaps or missing values
+
+                            --- no gaps in data found ---
+
+ |------------------ statistics of raw tree-ring measurements ------------------|
+
+ series   ident   frst   last   year    mean   stdev   skew   kurt   sens   ac(1)
+     1   0VL01A   1979   2009     31   1.764   0.544  0.314  2.351  0.289   0.322
+     2   0VL01B   1982   2009     28   1.887   0.516  0.637  3.206  0.237   0.427
+     3   0VL02A   1978   2009     32   1.782   0.514  0.653  2.895  0.263   0.337
+     4   0VL02B   1978   2009     32   1.617   0.375  0.575  2.682  0.232   0.306
+     5   0VL03A   1977   2009     33   1.653   0.506  0.264  2.312  0.298   0.312
+     6   0VL03B   1976   2009     34   1.632   0.710  0.910  2.748  0.216   0.717
+     7   0VL04A   1978   2008     31   2.573   0.618  0.028  2.836  0.266   0.249
+     8   0VL04B   1976   2009     34   2.403   0.652  0.523  2.461  0.249   0.457
+     9   0VL05A   1979   2009     31   2.521   0.917  0.567  2.927  0.275   0.589
+    10   0VL05B   1978   2009     32   2.528   0.812  0.260  2.642  0.221   0.662
+    11   0VL06A   1978   2009     32   2.417   0.526  0.589  3.378  0.208   0.220
+    12   0VL06B   1976   2009     34   2.073   0.537  0.194  3.211  0.216   0.364
+    13   0VL07A   1980   2009     30   2.315   0.506 -0.205  2.674  0.238   0.168
+    14   0VL07B   1979   2008     30   2.424   0.504  0.019  2.916  0.221   0.217
+    15   0VL08A   1982   2009     28   3.044   0.805 -2.025  8.036  0.228   0.134
+    16   0VL08B   1980   2009     30   2.671   0.513  0.185  2.170  0.184   0.267
+    17   0VL09A   1961   2008     48   1.249   0.719  0.318  2.380  0.308   0.673
+    18   0VL09B   1960   2009     50   1.179   0.696  0.293  2.102  0.335   0.735
+    19   0VL10A   1958   2009     52   0.834   0.311  0.353  3.131  0.240   0.688
+
+ series   ident   frst   last   year    mean   stdev   skew   kurt   sens   ac(1)
+    20   0VL10B   1958   2009     52   0.909   0.373  0.414  2.917  0.240   0.750
+    21   0VL11A   1957   2008     52   0.559   0.207  0.758  4.160  0.256   0.693
+    22   0VL11B   1957   2008     52   0.681   0.295  0.556  4.565  0.300   0.707
+    23   0VL12A   1956   2009     54   1.015   0.786  0.702  2.278  0.373   0.876
+    24   0VL12B   1956   2009     54   0.818   0.583  0.969  2.972  0.326   0.863
+    25   0VL13A   1971   2009     39   0.356   0.215  0.760  3.951  0.347   0.629
+    26   0VL13B   1971   2009     39   0.432   0.282  0.943  5.158  0.423   0.581
+
+       number of series read in:   26   from   1956  to   2009      54 years
+
+ |---------------- summary of raw tree-ring series statistics ------------------|
+
+                                year    mean   stdev   skew   kurt   sens   ac(1)
+ arithmetic mean                  38   1.667   0.539  0.368  3.194  0.269   0.498
+ standard deviation                9   0.795   0.191  0.571  1.233  0.057   0.230
+ median (50th quantile)           33   1.708   0.521  0.469  2.905  0.253   0.519
+ interquartile range              19   1.508   0.321  0.393  0.750  0.073   0.387
+ minimum value                    28   0.356   0.207 -2.025  2.102  0.184   0.134
+ lower hinge (25th quantile)      31   0.909   0.375  0.260  2.461  0.228   0.306
+ upper hinge (75th quantile)      50   2.417   0.696  0.653  3.211  0.300   0.693
+ maximum value                    54   3.044   0.917  0.969  8.036  0.423   0.876
+
+ |-------------------- all possible series rbar statistics ---------------------|
+
+   total    mean   standard   standard  skewess   kurtosis   minimum   maximum
+   corrs    rbar   deviation    error    coeff      coeff      corr      corr
+    325    0.298     0.395      0.022   -0.617      2.509    -0.660     0.951
+
+   minimum correlation: -0.660   series  0VL03B     and  0VL12A       34 years
+   maximum correlation:  0.951   series  0VL12A     and  0VL12B       54 years
+
+       percent of all possible correlations used (n>20 years):     100.00
+       percent of all possible tree-ring years used in rbar:        60.80
+
+              no running rbar segments calculated: total chronology
+               length less then 2x the running window width:   50
+
+ |======================== raw data chronology statistics ======================|
+
+ |----------------- robust mean raw data chronology statistics -----------------|
+
+  first    last    total    mean    stdrd    skew    kurtosis    mean    serial
+   year    year    years   index     dev     coeff     coeff     sens     corr
+   1956    2009      54    1.214   0.683   -0.056      1.650    0.183    0.899
+
+  mean indices vs their standard deviations       robust mean efficiency results
+      correlation    slope    intercept             # improved    # unimproved
+        0.968        0.533     -0.035                      8             46
+
+ |---------------- robust mean efficiency gain and loss results ----------------|
+
+   median      interquartile      minimum       lower       upper       maximum
+    gain           range            gain        hinge       hinge         gain
+    1.09            0.27            0.87         0.99        1.26         1.82
+
+   median      interquartile      minimum       lower       upper       maximum
+    loss           range            loss        hinge       hinge         loss
+    0.89            0.03            0.76         0.87        0.90         1.00
+
+ |--------------------- segment length summary statistics ----------------------|
+
+   median      interquartile      minimum       lower       upper       maximum
+   length          range           length       hinge       hinge        length
+      34.            19.             28.          31.         50.           54.
+
+ |----------- raw data chronology auto and partial autocorrelations ------------|
+
+ lag           t-1    t-2    t-3    t-4    t-5    t-6    t-7    t-8    t-9   t-10
+ acf         0.882  0.876  0.812  0.782  0.708  0.644  0.587  0.501  0.448  0.374
+ pacf        0.882  0.444 -0.052 -0.005 -0.160 -0.165 -0.003 -0.156  0.017 -0.001
+ 95% c.l.    0.272  0.435  0.551  0.633  0.701  0.752  0.792  0.823  0.846  0.863
+
+ |------------------ raw data chronology autoregressive model ------------------|
+
+ ord    rsq    t-1    t-2    t-3    t-4    t-5    t-6    t-7    t-8    t-9   t-10
+  2   0.858  0.433  0.518
+
+ |================== detrended data curve fits and statistics ==================|
+
+ |------------------------ results of first detrending -------------------------|
+
+ |--------------- growth curve used for detrending tree-ring data --------------|
+   option
+     -5: variable span smoother         f(i) = variable span smooth
+     -4: lowess robust smoother         f(i) = lowess robust smooth
+     -3: median smoothing               f(i) = median sharp/smooth
+    -2:  regional curve detrending      f(i) = one age-aligned curve
+    -1:  first-differences              f(i) = y(i) - y(i-1)
+     1:  neg expon curve, no = opt 4    f(i) = a*exp(-b*t(i)) + d    (d>0)
+     2:  neg expon curve, no = opt 5    f(i) = a*exp(-b*t(i)) + d    (d>0)
+     3:  neg expon curve  (general)     f(i) = a*exp(-b*t(i)) + d   (any d)
+     4:  linear regression (any slope)  f(i) = +/-c*t(i) + d
+     5:  linear regression (neg slope)  f(i) = -c*t(i) + d   
+     6:  horizontal line through mean   f(i) = mean(y(i)) = d
+     7:  hugershoff growth function     f(i) = a*t(i+p)**b * exp(-c*t(i+p)) + d
+     8:  general exponential (b = 1)    f(i) = a*t(i+p)**b * exp(-c*t(i+p)) + d
+    >9:  cubic smoothing spline         fixed 50 pct variance cutoff
+   <-9:  cubic smoothing spline         pct n 50 pct variance cutoff
+
+   (a, b, c are coefficients, d is intercept or asymptote, p is pith offset)
+
+ series   ident     option       a           b           c           d         p
+     1   0VL01A        6     0.000000    0.000000    0.000000    1.763581       0
+     2   0VL01B        6     0.000000    0.000000    0.000000    1.887322       0
+     3   0VL02A        6     0.000000    0.000000    0.000000    1.781812       0
+     4   0VL02B        6     0.000000    0.000000    0.000000    1.616937       0
+     5   0VL03A        6     0.000000    0.000000    0.000000    1.653212       0
+     6   0VL03B        6     0.000000    0.000000    0.000000    1.631824       0
+     7   0VL04A        6     0.000000    0.000000    0.000000    2.572548       0
+     8   0VL04B        6     0.000000    0.000000    0.000000    2.402647       0
+     9   0VL05A        6     0.000000    0.000000    0.000000    2.521129       0
+    10   0VL05B        6     0.000000    0.000000    0.000000    2.528344       0
+    11   0VL06A        6     0.000000    0.000000    0.000000    2.417438       0
+    12   0VL06B        6     0.000000    0.000000    0.000000    2.073000       0
+    13   0VL07A        6     0.000000    0.000000    0.000000    2.315033       0
+    14   0VL07B        6     0.000000    0.000000    0.000000    2.423800       0
+    15   0VL08A        6     0.000000    0.000000    0.000000    3.043572       0
+    16   0VL08B        6     0.000000    0.000000    0.000000    2.671033       0
+    17   0VL09A        6     0.000000    0.000000    0.000000    1.248687       0
+    18   0VL09B        6     0.000000    0.000000    0.000000    1.179120       0
+    19   0VL10A        6     0.000000    0.000000    0.000000    0.834192       0
+
+ series   ident     option       a           b           c           d         p
+    20   0VL10B        6     0.000000    0.000000    0.000000    0.909327       0
+    21   0VL11A        6     0.000000    0.000000    0.000000    0.558769       0
+    22   0VL11B        6     0.000000    0.000000    0.000000    0.680923       0
+    23   0VL12A        6     0.000000    0.000000    0.000000    1.014852       0
+    24   0VL12B        6     0.000000    0.000000    0.000000    0.818444       0
+    25   0VL13A        6     0.000000    0.000000    0.000000    0.356282       0
+    26   0VL13B        6     0.000000    0.000000    0.000000    0.431974       0
+
+ |-------------------- statistics of single tree-ring series -------------------|
+
+ series   ident   frst   last   year    mean   stdev   skew   kurt   sens   ac(1)
+     1  0VL01A    1979   2009     31   1.000   0.308  0.314  2.351  0.279   0.312
+     2  0VL01B    1982   2009     28   1.000   0.273  0.637  3.206  0.228   0.412
+     3  0VL02A    1978   2009     32   1.000   0.289  0.653  2.895  0.254   0.327
+     4  0VL02B    1978   2009     32   1.000   0.232  0.575  2.682  0.224   0.297
+     5  0VL03A    1977   2009     33   1.000   0.306  0.264  2.312  0.289   0.302
+     6  0VL03B    1976   2009     34   1.000   0.435  0.910  2.748  0.209   0.696
+     7  0VL04A    1978   2008     31   1.000   0.240  0.028  2.836  0.257   0.241
+     8  0VL04B    1976   2009     34   1.000   0.271  0.523  2.461  0.242   0.444
+     9  0VL05A    1979   2009     31   1.000   0.364  0.567  2.927  0.266   0.570
+    10  0VL05B    1978   2009     32   1.000   0.321  0.260  2.642  0.214   0.641
+    11  0VL06A    1978   2009     32   1.000   0.218  0.589  3.378  0.201   0.213
+    12  0VL06B    1976   2009     34   1.000   0.259  0.194  3.211  0.210   0.354
+    13  0VL07A    1980   2009     30   1.000   0.219 -0.205  2.674  0.230   0.162
+    14  0VL07B    1979   2008     30   1.000   0.208  0.019  2.916  0.213   0.209
+    15  0VL08A    1982   2009     28   1.000   0.265 -2.025  8.036  0.219   0.129
+    16  0VL08B    1980   2009     30   1.000   0.192  0.185  2.170  0.178   0.258
+    17  0VL09A    1961   2008     48   1.000   0.576  0.318  2.380  0.302   0.659
+    18  0VL09B    1960   2009     50   1.000   0.590  0.293  2.102  0.328   0.720
+    19  0VL10A    1958   2009     52   1.000   0.372  0.353  3.131  0.236   0.674
+
+ series   ident   frst   last   year    mean   stdev   skew   kurt   sens   ac(1)
+    20  0VL10B    1958   2009     52   1.000   0.410  0.414  2.917  0.236   0.735
+    21  0VL11A    1957   2008     52   1.000   0.370  0.758  4.160  0.251   0.680
+    22  0VL11B    1957   2008     52   1.000   0.434  0.556  4.565  0.295   0.694
+    23  0VL12A    1956   2009     54   1.000   0.774  0.702  2.278  0.366   0.860
+    24  0VL12B    1956   2009     54   1.000   0.713  0.969  2.972  0.319   0.847
+    25  0VL13A    1971   2009     39   1.000   0.603  0.760  3.951  0.338   0.613
+    26  0VL13B    1971   2009     39   1.000   0.652  0.943  5.158  0.412   0.566
+
+ |---------------- summary of single tree-ring series statistics ---------------|
+
+                                year    mean   stdev   skew   kurt   sens   ac(1)
+ arithmetic mean                  38   1.000   0.381  0.368  3.194  0.261   0.485
+ standard deviation                9   0.000   0.169  0.571  1.233  0.056   0.226
+ median (50th quantile)           33   1.000   0.315  0.469  2.905  0.247   0.505
+ interquartile range              19   0.000   0.176  0.393  0.750  0.075   0.383
+ minimum value                    28   1.000   0.192 -2.025  2.102  0.178   0.129
+ lower hinge (25th quantile)      31   1.000   0.259  0.260  2.461  0.219   0.297
+ upper hinge (75th quantile)      50   1.000   0.435  0.653  3.211  0.295   0.680
+ maximum value                    54   1.000   0.774  0.969  8.036  0.412   0.860
+
+ |-------------------- all possible series rbar statistics ---------------------|
+
+   total    mean   standard   standard  skewess   kurtosis   minimum   maximum
+   corrs    rbar   deviation    error    coeff      coeff      corr      corr
+    325    0.298     0.395      0.022   -0.617      2.509    -0.660     0.951
+
+   minimum correlation: -0.660   series  0VL03B     and  0VL12A       34 years
+   maximum correlation:  0.951   series  0VL12A     and  0VL12B       54 years
+
+       percent of all possible correlations used (n>20 years):     100.00
+       percent of all possible tree-ring years used in rbar:        60.80
+
+              no running rbar segments calculated: total chronology
+               length less then 2x the running window width:   50
+
+ |======================== standard chronology statistics ======================|
+
+ |----------------- robust mean standard chronology statistics -----------------|
+
+  first    last    total    mean    stdrd    skew    kurtosis    mean    serial
+   year    year    years   index     dev     coeff     coeff     sens     corr
+   1956    2009      54    0.847   0.298    0.125      2.436    0.187    0.776
+
+  mean indices vs their standard deviations       robust mean efficiency results
+      correlation    slope    intercept             # improved    # unimproved
+        0.090        0.034      0.267                     31             23
+
+ |---------------- robust mean efficiency gain and loss results ----------------|
+
+   median      interquartile      minimum       lower       upper       maximum
+    gain           range            gain        hinge       hinge         gain
+    0.94            1.73            0.53         0.67        2.41         8.04
+
+   median      interquartile      minimum       lower       upper       maximum
+    loss           range            loss        hinge       hinge         loss
+    0.91            0.07            0.81         0.88        0.95         1.00
+
+ |----------- standard chronology auto and partial autocorrelations ------------|
+
+ lag           t-1    t-2    t-3    t-4    t-5    t-6    t-7    t-8    t-9   t-10
+ acf         0.762  0.765  0.689  0.672  0.620  0.570  0.538  0.405  0.362  0.292
+ pacf        0.762  0.439  0.083  0.093  0.010 -0.053  0.007 -0.284 -0.112 -0.021
+ 95% c.l.    0.272  0.400  0.497  0.563  0.620  0.664  0.699  0.729  0.746  0.759
+
+ |------------------ standard chronology autoregressive model ------------------|
+
+ ord    rsq    t-1    t-2    t-3    t-4    t-5    t-6    t-7    t-8    t-9   t-10
+  2   0.694  0.440  0.440
+
+ |======================= pooled autoregression analysis =======================|
+
+ pooled autocorrelations:
+
+ lag     t= -1  t= -2  t= -3  t= -4  t= -5  t= -6  t= -7  t= -8  t= -9  t=-10
+         0.463  0.536  0.326  0.398  0.297  0.296  0.316  0.174  0.203  0.101
+
+ yule-walker estimates of autoregression:
+
+ order   t= -1  t= -2  t= -3  t= -4  t= -5  t= -6  t= -7  t= -8  t= -9  t=-10
+    1    0.463
+    2    0.273  0.410
+    3    0.280  0.414 -0.016
+    4    0.282  0.355 -0.056  0.141
+    5    0.275  0.358 -0.074  0.127  0.051
+    6    0.275  0.358 -0.073  0.125  0.050  0.006
+    7    0.274  0.351 -0.091  0.135  0.001 -0.032  0.137
+    8    0.294  0.346 -0.091  0.154 -0.012  0.018  0.176 -0.143
+    9    0.292  0.348 -0.090  0.154 -0.011  0.017  0.180 -0.140 -0.009
+   10    0.292  0.343 -0.085  0.155 -0.011  0.022  0.177 -0.130  0.000 -0.030
+
+ last term in each row above equals the partial autocorrelation coefficient
+
+ akaike information criterion:
+
+      ar( 0)      ar( 1)      ar( 2)      ar( 3)      ar( 4)      ar( 5)  
+      371.76      360.72      352.80      354.79      355.70      357.56
+
+      ar( 6)      ar( 7)      ar( 8)      ar( 9)      ar(10)  
+      359.55      360.53      361.41      363.41      365.36
+
+ selected autoregression order:   2
+
+ ar order selection criterion: ipp=0  first-minimum aic selection
+
+ the aic trace should be checked to see if ar order selection criterion <ipp>
+ is adequate. e.g. if ar-orders of the first-minimum and the full-minimum aic
+ are close, an arstan run with full-minimum aic order selection might be tried
+
+ autoregression coefficients:
+
+  t= -1   t= -2   t= -3   t= -4   t= -5   t= -6   t= -7   t= -8   t= -9   t=-10   
+  0.273   0.410
+
+ r-squared due to pooled autoregression:   34.63 pct
+ variance inflation from autoregression:  152.97 pct
+
+ impulse response function weights for this ar ( 2) process out to order 50:
+
+  1.0000   0.273   0.484   0.244   0.265   0.173   0.156   0.113   0.095   0.072
+  0.0586   0.046   0.037   0.029   0.023   0.018   0.014   0.011   0.009   0.007
+  0.0056   0.004   0.003   0.003   0.002   0.002   0.001   0.001   0.001   0.001
+  0.0005   0.000   0.000   0.000   0.000   0.000   0.000   0.000   0.000   0.000
+  0.0001   0.000   0.000   0.000   0.000   0.000   0.000   0.000   0.000   0.000
+
+ |================== individual series autoregression analyses =================|
+
+ |---------------- individual series autoregressive coefficients ---------------|
+
+     series    ident    order     rsq     t-1     t-2     t-3   .....    t-ip
+         1   0VL01A       2     0.426   0.149   0.544
+         2   0VL01B       2     0.368   0.238   0.454
+         3   0VL02A       2     0.317   0.184   0.472
+         4   0VL02B       2     0.346   0.151   0.505
+         5   0VL03A       2     0.228   0.229   0.274
+         6   0VL03B       2     0.627   0.354   0.500
+         7   0VL04A       2     0.323   0.135   0.474
+         8   0VL04B       2     0.412   0.231   0.500
+         9   0VL05A       2     0.531   0.276   0.529
+        10   0VL05B       2     0.518   0.462   0.297
+        11   0VL06A       2     0.092   0.216   0.050
+        12   0VL06B       2     0.185   0.344   0.103
+        13   0VL07A       2     0.029   0.164   0.018
+        14   0VL07B       2     0.074   0.189   0.139
+        15   0VL08A       2     0.046   0.185  -0.048
+        16   0VL08B       2     0.119   0.304  -0.112
+        17   0VL09A       2     0.683   0.242   0.642
+        18   0VL09B       2     0.625   0.388   0.462
+        19   0VL10A       2     0.548   0.422   0.382
+
+     series    ident    order     rsq     t-1     t-2     t-3   .....    t-ip
+        20   0VL10B       2     0.596   0.581   0.230
+        21   0VL11A       2     0.469   0.699  -0.024
+        22   0VL11B       2     0.487   0.706  -0.013
+        23   0VL12A       2     0.828   0.523   0.410
+        24   0VL12B       2     0.813   0.568   0.358
+        25   0VL13A       2     0.414   0.564   0.096
+        26   0VL13B       2     0.453   0.585   0.124
+
+ |------------- summary statistics for autoregressive coefficients -------------|
+
+                        order     rsq     t-1     t-2     t-3   .....    t-ip
+   arithmetic mean        2     0.406   0.350   0.283
+   standard deviation     0     0.226   0.181   0.224
+   median                 2     0.420   0.290   0.327
+   interquartile range    0     0.319   0.335   0.378
+   minimum value          2     0.029   0.135  -0.112
+   lower hinge            2     0.228   0.189   0.096
+   upper hinge            2     0.548   0.523   0.474
+   maximum value          2     0.828   0.706   0.642
+
+ |------------------- statistics of prewhitened tree-ring data -----------------|
+
+ series   ident   frst   last   year    mean   stdev   skew   kurt   sens   ac(1)
+     1  0VL01A    1979   2009     31   1.000   0.243  0.300  3.200  0.282  -0.122
+     2  0VL01B    1982   2009     28   1.000   0.213  0.386  3.445  0.245  -0.045
+     3  0VL02A    1978   2009     32   1.000   0.236  0.380  3.408  0.255   0.005
+     4  0VL02B    1978   2009     32   1.000   0.190  0.549  2.366  0.225  -0.086
+     5  0VL03A    1977   2009     33   1.000   0.277  0.464  2.664  0.304   0.060
+     6  0VL03B    1976   2009     34   1.000   0.265  2.447 10.576  0.240   0.011
+     7  0VL04A    1978   2008     31   1.000   0.203  0.671  2.958  0.246  -0.098
+     8  0VL04B    1976   2009     34   1.000   0.206  0.477  2.788  0.239   0.030
+     9  0VL05A    1979   2009     31   1.000   0.249  1.086  4.394  0.273  -0.030
+    10  0VL05B    1978   2009     32   1.000   0.231  0.341  3.394  0.271  -0.061
+    11  0VL06A    1978   2009     32   1.000   0.211  0.744  3.821  0.221  -0.005
+    12  0VL06B    1976   2009     34   1.000   0.235  0.493  3.542  0.260  -0.007
+    13  0VL07A    1980   2009     30   1.000   0.215 -0.342  2.738  0.247   0.005
+    14  0VL07B    1979   2008     30   1.000   0.200 -0.085  2.463  0.236  -0.017
+    15  0VL08A    1982   2009     28   1.000   0.258 -1.879  7.720  0.229  -0.031
+    16  0VL08B    1980   2009     30   1.000   0.184 -0.207  2.130  0.191   0.022
+    17  0VL09A    1961   2008     48   1.000   0.318  2.115  7.894  0.300  -0.089
+    18  0VL09B    1960   2009     50   1.000   0.361  1.911  6.820  0.342  -0.035
+    19  0VL10A    1958   2009     52   1.000   0.248  1.144  5.231  0.270  -0.048
+
+ series   ident   frst   last   year    mean   stdev   skew   kurt   sens   ac(1)
+    20  0VL10B    1958   2009     52   1.000   0.258  0.963  4.617  0.291  -0.040
+    21  0VL11A    1957   2008     52   1.000   0.271  0.889  5.238  0.311   0.001
+    22  0VL11B    1957   2008     52   1.000   0.310  0.051  5.216  0.405  -0.001
+    23  0VL12A    1956   2009     54   1.000   0.321  0.741  3.454  0.357  -0.081
+    24  0VL12B    1956   2009     54   1.000   0.304  0.559  3.543  0.344  -0.039
+    25  0VL13A    1971   2009     39   1.000   0.466  1.342  7.301  0.429   0.008
+    26  0VL13B    1971   2009     39   1.000   0.480  1.508  5.675  0.436   0.089
+
+ |------------- summary of prewhitened tree-ring series statistics -------------|
+
+                                year    mean   stdev   skew   kurt   sens   ac(1)
+ arithmetic mean                  38   1.000   0.267  0.656  4.484  0.287  -0.023
+ standard deviation                9   0.000   0.075  0.855  2.095  0.064   0.049
+ median (50th quantile)           33   1.000   0.249  0.554  3.542  0.271  -0.024
+ interquartile range              19   0.000   0.091  0.745  2.280  0.071   0.053
+ minimum value                    28   1.000   0.184 -1.879  2.130  0.191  -0.122
+ lower hinge (25th quantile)      31   1.000   0.213  0.341  2.958  0.240  -0.048
+ upper hinge (75th quantile)      50   1.000   0.304  1.086  5.238  0.311   0.005
+ maximum value                    54   1.000   0.480  2.447 10.576  0.436   0.089
+
+ |-------------------- all possible series rbar statistics ---------------------|
+
+   total    mean   standard   standard  skewess   kurtosis   minimum   maximum
+   corrs    rbar   deviation    error    coeff      coeff      corr      corr
+    325    0.351     0.245      0.014   -0.509      2.913    -0.348     0.883
+
+   minimum correlation: -0.348   series  0VL03A     and  0VL13B       33 years
+   maximum correlation:  0.883   series  0VL01A     and  0VL01B       28 years
+
+       percent of all possible correlations used (n>20 years):     100.00
+       percent of all possible tree-ring years used in rbar:        60.80
+
+              no running rbar segments calculated: total chronology
+               length less then 2x the running window width:   50
+
+ |======================== residual chronology statistics ======================|
+
+ |----------------- robust mean residual chronology statistics -----------------|
+
+  first    last    total    mean    stdrd    skew    kurtosis    mean    serial
+   year    year    years   index     dev     coeff     coeff     sens     corr
+   1956    2009      54    0.968   0.141    1.301      5.139    0.159   -0.077
+
+  mean indices vs their standard deviations       robust mean efficiency results
+      correlation    slope    intercept             # improved    # unimproved
+        0.346        0.157      0.043                     27             27
+
+ |---------------- robust mean efficiency gain and loss results ----------------|
+
+   median      interquartile      minimum       lower       upper       maximum
+    gain           range            gain        hinge       hinge         gain
+    0.85            0.25            0.59         0.76        1.01        10.38
+
+   median      interquartile      minimum       lower       upper       maximum
+    loss           range            loss        hinge       hinge         loss
+    0.90            0.03            0.80         0.88        0.92         1.00
+
+ |----------- residual chronology auto and partial autocorrelations ------------|
+
+ lag           t-1    t-2    t-3    t-4    t-5    t-6    t-7    t-8    t-9   t-10
+ acf        -0.076  0.033 -0.016  0.133  0.096  0.046  0.214 -0.070  0.089  0.030
+ pacf       -0.076  0.028 -0.011  0.131  0.118  0.058  0.230 -0.049  0.050  0.028
+ 95% c.l.    0.272  0.274  0.274  0.274  0.279  0.281  0.282  0.294  0.295  0.297
+
+ |------------------ residual chronology autoregressive model ------------------|
+
+ ord    rsq    t-1    t-2    t-3    t-4    t-5    t-6    t-7    t-8    t-9   t-10
+  0   0.000
+
+ |---------- rewhitened chronology auto and partial autocorrelations -----------|
+
+ lag           t-1    t-2    t-3    t-4    t-5    t-6    t-7    t-8    t-9   t-10
+ acf         0.000 -0.005 -0.004  0.137  0.104  0.065  0.213 -0.052  0.081  0.050
+ pacf        0.000 -0.005 -0.004  0.137  0.106  0.070  0.225 -0.062  0.066  0.030
+ 95% c.l.    0.272  0.272  0.272  0.272  0.277  0.280  0.281  0.293  0.294  0.295
+
+ |----------------- rewhitened chronology autoregressive model -----------------|
+
+ ord    rsq    t-1    t-2    t-3    t-4    t-5    t-6    t-7    t-8    t-9   t-10
+  2   0.000  0.000 -0.005
+
+ |========================= arstan chronology statistics =======================|
+
+ |----------------- robust mean arstan chronology statistics -------------------|
+
+
+  first    last    total    mean    stdrd    skew    kurtosis    mean    serial
+   year    year    years   index     dev     coeff     coeff     sens     corr
+   1956    2009       54   0.972   0.193    0.844      3.525    0.138    0.569
+
+ |------------ arstan chronology auto and partial autocorrelations -------------|
+
+ lag           t-1    t-2    t-3    t-4    t-5    t-6    t-7    t-8    t-9   t-10
+ acf         0.558  0.637  0.492  0.526  0.466  0.400  0.426  0.263  0.296  0.175
+ pacf        0.558  0.472  0.075  0.132  0.082 -0.070  0.092 -0.179 -0.037 -0.071
+ 95% c.l.    0.272  0.347  0.425  0.465  0.507  0.538  0.559  0.583  0.592  0.603
+
+ |------------------- arstan chronology autoregressive model -------------------|
+
+ ord    rsq    t-1    t-2    t-3    t-4    t-5    t-6    t-7    t-8    t-9   t-10
+  2   0.479  0.296  0.478
+
+ |================ as jim morrison would say, "this is the end" ================|

@@ -1,0 +1,170 @@
+
+                        **********************************
+                        **********************************
+                        ***                            ***
+                        ***      program ARSTAN40c     ***
+                        ***                            ***
+                        ***       creation date:       ***
+                        ***           3/6/06           ***
+                        ***                            ***
+                        ***       programmed by:       ***
+                        ***     Dr. Edward R. Cook     ***
+                        ***       Paul J. Krusic       ***
+                        ***    tree-ring laboratory    ***
+                        ***  lamont-doherty earth obs  ***
+                        ***    palisades, n.y. 10964   ***
+                        *** drdendro@ldeo.columbia.edu ***
+                        ***    pjk@ldeo.columbia.edu   ***
+                        ***                            ***
+                        **********************************
+                        **********************************
+
+ |==============================================================================|
+
+ overall run title:                                                                                 
+
+ file names file processed:       arstan.files                            
+ data file processed:             DDL.raw                                 
+ log file processed:              DDL.raw_log                             
+
+                       opt          plt
+ tree-ring data type    1                !tucson ring-width format                         
+ missing data in gap   -9            0   !missing values estimated (no plots)              
+ data transformation    0            0   !no data transformation (no plots)                
+ first detrending       0      0     1   !1st-no detrending performed                      
+ second detrending      0      0     0   !2nd-no detrending performed                      
+ robust detrending      1                !non-robust detrending methods used               
+ interactive detrend    0                !no interactive detrending                        
+ index calculation      1                !tree-ring indices or ratios (rt/gt)              
+ ar modeling method     0            0   !no autoregressive modeling done                  
+ pooled ar order        0            0   !minimum aic pooled ar model order fit 
+ series ar order        0                !pooled ar order fit to all series                
+ mean chronology        2   0    0   0   !robust (biweight) mean chronology                
+ stabilize variance     0                !no variance stabilization performed              
+ common period years        0    0       !no common period analysis performed              
+ site-tree-core mask       SSSTTC        !site-tree-core separation mask                   
+ running rbar              50   25   0   !running rbar window/overlap (no plots)           
+ printout option        2                !summary & series statistics printed              
+ core series save       0                !no individual core series saved                  
+ summary plot displays  3                !spaghetti and mean chronology plots              
+
+ stand dynamics stuf    0            0   !no stand dynamics analyses done                  
+ running mean window    0                !running mean window width                        
+ percent growth change  0                !percent growth change threshold                  
+ std error threshold    0                !standard error limit threshold                   
+
+ |======================== raw data statistical analyses =======================|
+
+ |------------------- tree-ring series read in for processing ------------------|
+
+  data header lines:
+
+ |------------ series gaps found based on any negative number found ------------|
+
+        series      ident      results of scans for gaps or missing values
+
+                            --- no gaps in data found ---
+
+ |------------------ statistics of raw tree-ring measurements ------------------|
+
+ series   ident   frst   last   year    mean   stdev   skew   kurt   sens   ac(1)
+     1   DDL01A   1953   2010     58   0.458   0.282  0.369  2.002  0.400   0.638
+     2   DDL01B   1953   2008     56   0.348   0.184  0.446  2.634  0.446   0.448
+     3   DDL02A   1953   2010     58   1.786   0.775 -0.101  2.563  0.211   0.808
+     4   DDL02B   1954   2010     57   1.442   0.595 -0.190  2.420  0.269   0.748
+     5   DDL03B   1953   2010     58   1.802   0.881  0.100  2.480  0.258   0.805
+     6   DDL03A   1953   2010     58   1.278   0.549  0.694  3.790  0.224   0.761
+     7   DDL04B   1954   2010     57   0.667   0.431  0.847  3.191  0.405   0.763
+     8   DDL04A   1955   2010     56   0.443   0.296  0.834  2.922  0.396   0.817
+     9   DDL05B   1953   2010     58   0.658   0.371  0.827  2.578  0.260   0.849
+    10   DDL05A   1953   2010     58   0.796   0.338 -0.049  2.816  0.271   0.649
+    11   DDL06A   1955   2010     56   0.540   0.369  0.398  2.078  0.317   0.894
+    12   DDL06B   1955   2010     56   0.499   0.296  0.473  2.334  0.362   0.786
+    13   DDL07B   1953   2010     58   0.875   0.402  0.245  2.768  0.317   0.768
+    14   DDL07A   1954   2010     57   1.140   0.568  0.753  3.074  0.254   0.812
+    15   DDL08B   1956   2010     55   0.691   0.352  0.473  2.251  0.317   0.718
+    16   DDL08A   1957   2010     54   0.724   0.408  0.316  1.964  0.268   0.790
+    17   DDL09A   1965   2010     46   2.359   0.796 -0.273  3.612  0.268   0.450
+    18   DDL09B   1957   2010     54   1.745   0.604  0.376  2.678  0.242   0.633
+    19   DDL10A   1966   2010     45   2.733   1.031 -0.438  2.350  0.211   0.802
+
+ series   ident   frst   last   year    mean   stdev   skew   kurt   sens   ac(1)
+    20   DDL10B   1964   2010     47   3.232   1.428  0.176  3.050  0.296   0.766
+    21   DDL11A   1966   2010     45   1.859   0.511  0.658  2.782  0.179   0.667
+    22   DDL11B   1969   2010     42   2.417   0.623  0.254  3.398  0.230   0.377
+    23   DDL12A   1973   2010     38   2.492   0.436  1.906  8.054  0.166   0.016
+    24   DDL12B   1970   2010     41   2.307   0.567 -0.198  2.687  0.156   0.621
+    25   DDL13A   1977   2010     34   2.511   0.958  0.403  2.699  0.196   0.782
+    26   DDL13B   1974   2010     37   2.137   0.829  1.088  3.491  0.229   0.767
+    27   DDL14A   1973   2010     38   2.795   0.724 -0.698  3.410  0.232   0.421
+
+       number of series read in:   27   from   1953  to   2010      58 years
+
+ |---------------- summary of raw tree-ring series statistics ------------------|
+
+                                year    mean   stdev   skew   kurt   sens   ac(1)
+ arithmetic mean                  51   1.509   0.578  0.359  2.966  0.273   0.680
+ standard deviation                8   0.885   0.280  0.529  1.127  0.076   0.191
+ median (50th quantile)           56   1.442   0.549  0.376  2.699  0.260   0.763
+ interquartile range              12   1.654   0.379  0.650  0.683  0.090   0.160
+ minimum value                    34   0.348   0.184 -0.698  1.964  0.156   0.016
+ lower hinge (25th quantile)      45   0.679   0.370  0.026  2.450  0.227   0.636
+ upper hinge (75th quantile)      57   2.333   0.749  0.676  3.133  0.317   0.796
+ maximum value                    58   3.232   1.428  1.906  8.054  0.446   0.894
+
+ |-------------------- all possible series rbar statistics ---------------------|
+
+   total    mean   standard   standard  skewess   kurtosis   minimum   maximum
+   corrs    rbar   deviation    error    coeff      coeff      corr      corr
+    351    0.543     0.240      0.013   -0.502      2.582    -0.178     0.929
+
+   minimum correlation: -0.178   series  DDL09A     and  DDL09B       46 years
+   maximum correlation:  0.929   series  DDL06A     and  DDL06B       56 years
+
+       percent of all possible correlations used (n>20 years):     100.00
+       percent of all possible tree-ring years used in rbar:        80.22
+
+              no running rbar segments calculated: total chronology
+               length less then 2x the running window width:   50
+
+ |======================== raw data chronology statistics ======================|
+
+ |----------------- robust mean raw data chronology statistics -----------------|
+
+  first    last    total    mean    stdrd    skew    kurtosis    mean    serial
+   year    year    years   index     dev     coeff     coeff     sens     corr
+   1953    2010      58    1.249   0.575   -0.194      2.122    0.173    0.885
+
+  mean indices vs their standard deviations       robust mean efficiency results
+      correlation    slope    intercept             # improved    # unimproved
+        0.931        0.569      0.082                     23             35
+
+ |---------------- robust mean efficiency gain and loss results ----------------|
+
+   median      interquartile      minimum       lower       upper       maximum
+    gain           range            gain        hinge       hinge         gain
+    0.80            1.01            0.07         0.18        1.19         1.99
+
+   median      interquartile      minimum       lower       upper       maximum
+    loss           range            loss        hinge       hinge         loss
+    0.90            0.07            0.74         0.87        0.94         1.00
+
+ |--------------------- segment length summary statistics ----------------------|
+
+   median      interquartile      minimum       lower       upper       maximum
+   length          range           length       hinge       hinge        length
+      56.            13.             34.          45.         58.           58.
+
+ |----------- raw data chronology auto and partial autocorrelations ------------|
+
+ lag           t-1    t-2    t-3    t-4    t-5    t-6    t-7    t-8    t-9   t-10
+ acf         0.869  0.835  0.777  0.709  0.644  0.568  0.468  0.403  0.289  0.209
+ pacf        0.869  0.326  0.021 -0.100 -0.070 -0.093 -0.191  0.008 -0.189 -0.044
+ 95% c.l.    0.263  0.416  0.519  0.594  0.650  0.692  0.724  0.744  0.759  0.767
+
+ |------------------ raw data chronology autoregressive model ------------------|
+
+ ord    rsq    t-1    t-2    t-3    t-4    t-5    t-6    t-7    t-8    t-9   t-10
+  2   0.834  0.552  0.385
+
+ |================ as jim morrison would say, "this is the end" ================|

@@ -1,0 +1,34 @@
+ num = number of series             ident = series identification
+ ify = first year of time series      ily = last year of time series
+ yfp = years from pith for rcs        itn = transform (>3 = power*1000)
+ idt = series detrending options      ips = series ar model order options
+ isb = stabilize variance options     icu = use (1) or do not use (0)
+ ics = save (1) or do not save (0)    cpa = common period analysis series
+                   -- do not delete these lines --
+ num  ident      ify   ily   yfp   itn   idt   ips   isb   icu   ics   cpa
+   1  0VL01A    1979  2009     0     0     6     0     0     1     1     1
+   2  0VL01B    1982  2009     0     0     6     0     0     1     1     2
+   3  0VL02A    1978  2009     0     0     6     0     0     1     1     3
+   4  0VL02B    1978  2009     0     0     6     0     0     1     1     4
+   5  0VL03A    1977  2009     0     0     6     0     0     1     1     5
+   6  0VL03B    1976  2009     0     0     6     0     0     1     1     6
+   7  0VL04A    1978  2008     0     0     6     0     0     1     1     7
+   8  0VL04B    1976  2009     0     0     6     0     0     1     1     8
+   9  0VL05A    1979  2009     0     0     6     0     0     1     1     9
+  10  0VL05B    1978  2009     0     0     6     0     0     1     1    10
+  11  0VL06A    1978  2009     0     0     6     0     0     1     1    11
+  12  0VL06B    1976  2009     0     0     6     0     0     1     1    12
+  13  0VL07A    1980  2009     0     0     6     0     0     1     1    13
+  14  0VL07B    1979  2008     0     0     6     0     0     1     1    14
+  15  0VL08A    1982  2009     0     0     6     0     0     1     1    15
+  16  0VL08B    1980  2009     0     0     6     0     0     1     1    16
+  17  0VL09A    1961  2008     0     0     6     0     0     1     1    17
+  18  0VL09B    1960  2009     0     0     6     0     0     1     1    18
+  19  0VL10A    1958  2009     0     0     6     0     0     1     1    19
+  20  0VL10B    1958  2009     0     0     6     0     0     1     1    20
+  21  0VL11A    1957  2008     0     0     6     0     0     1     1    21
+  22  0VL11B    1957  2008     0     0     6     0     0     1     1    22
+  23  0VL12A    1956  2009     0     0     6     0     0     1     1    23
+  24  0VL12B    1956  2009     0     0     6     0     0     1     1    24
+  25  0VL13A    1971  2009     0     0     6     0     0     1     1    25
+  26  0VL13B    1971  2009     0     0     6     0     0     1     1    26
